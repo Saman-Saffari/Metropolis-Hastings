@@ -48,12 +48,12 @@ standard deviation to less than 0.2 which is around 35% less than the standard d
 
 Besides this difference, the only other visible difference with the case of 3 dimensions was the later convergence shown in both the trace plots and through gelman rubin statistic.
 
-This is rational firstly because the problem is more complex due to higher dimensions and secondly because lowering the standard deviation causes less movement at each iteration.
+This is rational firstly because the problem is more complex due to higher dimensions and secondly because lowering the standard deviation causes less movement at each iteration, hence the greater mixing time.
 
 # 4 
 metropolis_hastings_conditional function is defined. Its parameters are the data, the index (which out of 9 betas we are sampling), beta and acceptance rate. The latter two
-are only for taking in the initial values in the for loop of the metropolis_within_gibbs function. I added acceptance rate to print the acceptance rate array for betas and find a proposal sd which yields around
-15% acceptance rate. It was found to be 2.
+are only used for taking in the initial values in the for loop of the metropolis_within_gibbs function. I added acceptance rate to print the acceptance rate array for betas and find a proposal sd which yields around
+15% acceptance rate. The standard deviation was found to be 2 (very different from previous sds because each beta is separately iterated over).
 
 In this conditional function only the specified index is updated at each iteration. The function returns either the current beta or the proposed beta based on the previously
 explained metropolis hastings rules.
